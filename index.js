@@ -5,9 +5,11 @@ export default ({ store, options }) => {
         return false
     }
     const state = JSON.parse(JSON.stringify(store.$state))
+    const suffix = options.suffix || 'Store'
+    const storeName = store.name.replace(suffix, '')
 
     const addRequest = (key) => {
-        const newKey = `set${store.name}${key}`
+        const newKey = `set${storeName}${key}`
         let cb = () => {}
         if (typeof store[newKey] === 'function') {
             cb = store[newKey]        
@@ -21,7 +23,7 @@ export default ({ store, options }) => {
     }
 
     const addInterface = (key) => {
-        const newKey = `update${store.name}${key}`
+        const newKey = `update${storeName}${key}`
         ue.interface[newKey] = (data) => {
             store.$state[key] = data
         }

@@ -1,0 +1,22 @@
+{
+  "name": "@u4yk/unreal-pinia",
+  "version": "1.0.0",
+  "description": "Pinia/Vue 3 plugin that abstracts communication between the browser and Unreal Engine/WebUI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u4yk/UnrealPinia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/u4yk/UnrealPinia/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/u4yk/UnrealPinia#readme"
+}
