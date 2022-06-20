@@ -7,7 +7,7 @@ export default ({ store, options }) => {
     const state = JSON.parse(JSON.stringify(store.$state))
 
     const addRequest = (key) => {
-        const newKey = `update${store.name}${key}`
+        const newKey = `set${store.name}${key}`
         let cb = () => {}
         if (typeof store[newKey] === 'function') {
             cb = store[newKey]        
