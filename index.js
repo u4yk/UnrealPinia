@@ -14,13 +14,15 @@ export default ({ store, options }) => {
     // Also, memoize it as upper-case since we'll be appending state names to it for our methods.
     const suffix = options.suffix || 'Store'
     const storeName = capitalize(store.$id.replace(suffix, ''))
+    const actionPrefix = options.actionPrefix || 'set'
+    const interfacePrefix = options.interfacePrefix || 'update'
 
     /**
      * addRequest -- creates a store action that will send data to Unreal when invoked
      * @param {String} key -- the name of the state property we'll be using to create our method
      */
     const addAction = (key) => {
-        const newKey = `set${storeName}${capitalize(key)}`
+        const newKey = `${actionPrefix}${storeName}${capitalize(key)}`
         const cb = typeof store[newKey] === 'function' ? store[newKey] : () => {}
 
         const method = data => {
@@ -40,7 +42,7 @@ export default ({ store, options }) => {
      * @param {String} key 
      */
     const addInterface = (key) => {
-        const newKey = `update${storeName}${capitalize(key)}`
+        const newKey = `${interfacePrefix}${storeName}${capitalize(key)}`
         ue.interface[newKey] = (data) => {
             store.$state[key] = data
         }

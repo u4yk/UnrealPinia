@@ -16,7 +16,8 @@
     "url": "https://github.com/u4yk/UnrealPinia/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry":"https://npm.pkg.github.com"
   },
   "homepage": "https://github.com/u4yk/UnrealPinia#readme"
 }
